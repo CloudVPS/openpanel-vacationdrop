@@ -1,0 +1,12 @@
+#!/bin/sh
+# postrm framework for openpanel packages
+#
+# see: dh_installdeb(1)
+
+set -e
+
+#DEBHELPER#
+
+exit 0
+
+
