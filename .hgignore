@@ -1,0 +1,6 @@
+syntax: glob
+setvacation
+makeinclude
+platform.h
+setvacation
+configure.paths

@@ -1,12 +1,12 @@
 Source: vacationdrop
 Section: misc
 Priority: optional
-Maintainer: OpenPanel/Panel6 packager <packages@panelsix.com>
-Build-Depends: debhelper (>= 5)
+Maintainer: OpenPanel packager <packages@openpanel.com>
+Build-Depends: debhelper (>= 5), libgrace-dev
 Standards-Version: 3.7.2
 
 Package: vacationdrop
 Architecture: any
-Depends: , openpanel-mod-postfixcourier
+Depends: ${shlibs:Depends}
 Description: vacationdrop
  Tool that keeps track of autoresponding in the maildrop delivery chain.
