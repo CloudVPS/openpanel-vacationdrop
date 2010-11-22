@@ -24,10 +24,7 @@ setvacation: $(OBJ_SETVACATION)
 clean:
 	rm -f *.o
 	rm -f vacationdrop
-
-makeinclude:
-	@echo please run ./configure
-	@false
+	rm -f setvacation
 
 install:
 	mkdir -p "${DESTDIR}/usr/bin/"
