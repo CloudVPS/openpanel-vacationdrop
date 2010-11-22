@@ -2,7 +2,3 @@ cxx
 grace
 dbfile
 db4
-pthread
-libsocket
-libdl
-libcrypt
