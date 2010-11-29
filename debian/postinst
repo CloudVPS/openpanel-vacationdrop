@@ -19,8 +19,9 @@ set -e
 
 case "$1" in
     configure)
+    	id vmail >/dev/null 2>&1 || useradd -r vmail
+    	mkdir -p /var/db/vacation
 		chown vmail /var/db/vacation
-
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
