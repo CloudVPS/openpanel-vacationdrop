@@ -73,6 +73,7 @@ int vacationdropApp::main (void)
 
 int vacationdropApp::startMaildrop (const string &rcpt)
 {
+	if (argv.exists ("--nomaildrop")) return 0;
 	::execlp ("/usr/bin/maildrop", "maildrop", "-d", rcpt.cval(), NULL);
 	return 1;
 }

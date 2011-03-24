@@ -20,7 +20,8 @@ public:
 		 	 vacationdropApp (void) :
 				application ("com.openpanel.tools.vacationdrop")
 			 {
-			 	
+			 	opt["-n"]["long"] = "--nomaildrop";
+			 	opt["--nomaildrop"]["argc"] = 0;
 			 }
 			~vacationdropApp (void)
 			 {
