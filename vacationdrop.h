@@ -28,7 +28,7 @@ public:
 			 }
 
 	int		 main (void);
-	int		 startMaildrop (const string &);
+	int		 startMaildrop (const string &, const string &);
 };
 
 #endif

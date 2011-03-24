@@ -46,16 +46,16 @@ int vacationdropApp::main (void)
 	string rfn = PATH_CONF_RCPTS "/%s" %format (rcpt);
 	string sdbfn = PATH_SENDERDB "/%s" %format (rcpt);
 	
-	if (! fs.exists (rfn)) return startMaildrop (rcpt);
+	if (! fs.exists (rfn)) return startMaildrop (sender, rcpt);
 	
 	value conf;
 	conf.loadxml (rfn);
 
-	if (! db.open (sdbfn)) return startMaildrop (rcpt);
+	if (! db.open (sdbfn)) return startMaildrop (sender, rcpt);
 	if (db.db.exists (sender))
 	{
 		db.close ();
-		return startMaildrop (rcpt);
+		return startMaildrop (sender, rcpt);
 	}
 	
 	db.db[sender] = "on";
@@ -68,12 +68,12 @@ int vacationdropApp::main (void)
 	s.setsender ("MAILER-DAEMON", "Autoresponder");
 	s.sendmessage (sender, conf["subject"], conf["body"]);
 	
-	return startMaildrop (rcpt);
+	return startMaildrop (sender, rcpt);
 }
 
-int vacationdropApp::startMaildrop (const string &rcpt)
+int vacationdropApp::startMaildrop (const string &sender, const string &rcpt)
 {
 	if (argv.exists ("--nomaildrop")) return 0;
-	::execlp ("/usr/bin/maildrop", "maildrop", "-d", rcpt.cval(), NULL);
+	::execlp ("/usr/bin/maildrop", "maildrop", "-f", sender.cval(), "-d", rcpt.cval(), NULL);
 	return 1;
 }
