@@ -73,7 +73,15 @@ int vacationdropApp::main (void)
 
 int vacationdropApp::startMaildrop (const string &sender, const string &rcpt)
 {
-	if (argv.exists ("--nomaildrop")) return 0;
+	char buf[1024];
+	if (argv.exists ("--nomaildrop"))
+	{
+		while(read(0, buf, sizeof(buf)) > 0)
+		{
+			// loop
+		}
+		return 0;
+	}
 	::execlp ("/usr/bin/maildrop", "maildrop", "-f", sender.cval(), "-d", rcpt.cval(), NULL);
 	return 1;
 }
