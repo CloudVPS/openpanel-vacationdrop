@@ -2,7 +2,7 @@ Source: vacationdrop
 Section: misc
 Priority: optional
 Maintainer: OpenPanel packager <packages@openpanel.com>
-Build-Depends: debhelper (>= 5), libgrace-dev, libgrace-dbfile-dev
+Build-Depends: debhelper (>= 5), libgrace-dev, libgrace-dbfile-dev, libdb-dev
 Standards-Version: 3.7.2
 
 Package: vacationdrop
